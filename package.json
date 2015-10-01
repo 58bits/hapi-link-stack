@@ -1,7 +1,7 @@
 {
   "name": "hapi-link-stack",
   "description": "Request interface decorated methods for creating a link stack - for breadcrumb trails, and return urls.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Anthony Bouch <tony@58bits.com> (http://www.58bits.com)",
   "repository":
   {
