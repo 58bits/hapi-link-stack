@@ -106,7 +106,7 @@ For example, if an object context was being set, for rendering in a handlebars t
      reply.view(options.template, options.context)
      
      // From inside the handelbars template
-     <a class="btn" href="{{returnLink.path}}">Return</a>
+     <a class="btn" href="{{returnLink.path}}">Return to {{returnLink.label}}</a>
 
 
 Here's an image that illustrates the linkStack settings above...
