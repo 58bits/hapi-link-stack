@@ -38,7 +38,7 @@ For example...
 
     {
       path: '/users',
-      method: 'GET',
+      method: ['GET', 'POST'],
       config: {
         handler: require('./handlers/users/index'),
         auth: 'session',
@@ -88,7 +88,7 @@ For example...
     
     {
       path: '/offices/new',
-      method: ['GET'],
+      method: 'GET',
       config: {
         handler: require('./handlers/offices/new'),
         auth: 'session',
