@@ -63,7 +63,7 @@ For example...
     
     {
       path: '/users/{id}/edit',
-      method: ['GET', 'POST'],
+      method: ['GET', 'PUT'],
       config: {
         handler: require('./handlers/users/edit'),
         auth: 'session',
@@ -103,6 +103,6 @@ Here's an image that illustrates the linkStack settings above...
 
 <img src="https://raw.githubusercontent.com/58bits/hapi-link-stack/master/images/linkstack.png" width="800" height="159" alt="LinkStack"/>
 
-In this example the current task is to edit user details, however, there's a relationship between users and offices, with each user having one main office. In the quintessential example above, the user is moving to a new office, but the office record does not exist in the system yet. In this case the interface contains a link next to the office selector on the user edit form, for 'create new office', and the task 'jumps' to the new office screen. The current link stack settings, allow the task to return to the new user form after the new office has been created.
+In this example the current task is to edit user details, however, there's a relationship between users and offices, with each user having one main office. In the quintessential example above, the user is moving to a new office, but the office record does not exist in the system yet. In this case the interface contains a link next to the office selector on the user edit form, for 'create new office', and the task 'jumps' to the new office screen (the new office screen can also be display from an offices maintenance area of the application, and so there are different 'routes' to the new office form). The current link stack settings allow the task to return to the new user form after the new office has been created.
  
 To support the above use case, core entities or models of greater interest, are given lower links stack values. Reference tables, or lookups, or 'tangential' tasks are given higher values.  
