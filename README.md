@@ -4,7 +4,7 @@ Request interface decorated methods for creating a link stack - for breadcrumb t
  
 ## Use Case
  
- hapi-link-stack can be used to maintain a stack of request urls, that can be used for breadcrumb, and return urls. The stack is based on link levels, and higher levels allow a user to break out of a current task, and return to where they've left off when the side task has been completed. Return urls can also be used to return to dynamic content, like specific page numbers after viewing item details from a given page in a list.  
+ hapi-link-stack can be used to maintain a session-based stack of request urls, for breadcrumb trails, and return urls. The stack is based on link levels, and higher levels allow a user to break out of a current task, and return to where they've left off when the side task has been completed. Return urls can also be used to return to dynamic content, like specific page numbers after viewing item details from a given page in a list.  
  
  For example...
  
