@@ -21,22 +21,13 @@ NOTE: This implementation only works with authenticated sessions, and expects `r
 `npm install hapi-link-stack --save`
 
 ## Registering the Plugin
-
-
-    server.register(require('hapi-link-stack'), function(err) {
-      if (err) {
-        console.log('Failed loading plugin');
-      }
-    });
-    
-or
    
     server.register({
         register: require('hapi-link-stack'),
         options: {
-            sessionId: 'sid',
-            segment: 'link-stack',
-            expires: 60 * 60 * 1000 ,  // 60 minutes
+          cache: cache, // Assumes a previously created and shared cache policy object.
+          expires: 0, // Defaults to the cache policy expires settings.
+          sessionId: 'sid' //Set to match the session identifier to retrieve the cached session object
         }
      }, function (err) {
          if (err) {
