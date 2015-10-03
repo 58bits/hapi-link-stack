@@ -2,6 +2,18 @@
 
 Request interface decorated methods for creating a link stack - for breadcrumb trails, and return urls.
  
+## Use Case
+ 
+ hapi-link-stack can be used to maintain a stack of request urls, that can be used for breadcrumb, and return urls. The stack is based on link levels, and higher levels allow a user to break out of a current task, and return to where they've left off when the side task has been completed. Return urls can also be used to return to dynamic content, like specific page numbers after viewing item details from a given page in a list.  
+ 
+ For example...
+ 
+ <img src="https://raw.githubusercontent.com/58bits/hapi-link-stack/master/images/linkstack.png" width="800" height="159" alt="LinkStack"/>
+ 
+ In this example the current task is to edit user details, however, there's a relationship between users and offices, with each user having one main office. In the example above, the user is moving to a new office, but the office record does not exist in the system yet. In this case the interface contains a link next to the office selector on the user edit form, for 'create new office', and the task 'jumps' to the new office screen (the new office screen can also be displayed from an offices maintenance area of the application, and so there are different 'routes' to the new office form). The current link stack settings allows the task to return to the new user form after the new office has been added. Note: The new office route, is set to level 5, so that a 'post redirect to get' pattern can be used to return either to a list of offices, and then the user edit screen, or directly to the user edit screen - for example using [hapi-flash](https://github.com/58bits/hapi-flash).
+  
+ To support the above use case, core entities or models of greater interest, are given lower links stack values. Reference tables, or lookups, or 'tangential' tasks are given higher values.  
+ 
 ## Installation
 
 `npm install hapi-link-stack --save`
@@ -107,12 +119,3 @@ For example, if an object context was being set, for rendering in a handlebars t
      
      // From inside the handelbars template
      <a class="btn" href="{{returnLink.path}}">Return to {{returnLink.label}}</a>
-
-
-Here's an image that illustrates the linkStack settings above...
-
-<img src="https://raw.githubusercontent.com/58bits/hapi-link-stack/master/images/linkstack.png" width="800" height="159" alt="LinkStack"/>
-
-In this example the current task is to edit user details, however, there's a relationship between users and offices, with each user having one main office. In the example above, the user is moving to a new office, but the office record does not exist in the system yet. In this case the interface contains a link next to the office selector on the user edit form, for 'create new office', and the task 'jumps' to the new office screen (the new office screen can also be displayed from an offices maintenance area of the application, and so there are different 'routes' to the new office form). The current link stack settings allows the task to return to the new user form after the new office has been added. Note: The new office route, is set to level 5, so that a 'post redirect to get' pattern can be used to return either to a list of offices, and then the user edit screen, or directly to the user edit screen - for example using [hapi-flash](https://github.com/58bits/hapi-flash).
- 
-To support the above use case, core entities or models of greater interest, are given lower links stack values. Reference tables, or lookups, or 'tangential' tasks are given higher values.  
