@@ -1,6 +1,8 @@
 # hapi-link-stack
 
 Request interface decorated methods for creating a link stack - for breadcrumb trails, and return urls.
+
+NOTE: This implementation only works with authenticated sessions, and expects `request.auth.isAuthenticated` and a populated `request.auth.credentials` object. It also assumes that the caching strategy includes a session object, onto which the link stack can be stored. 
  
 ## Use Case
  
