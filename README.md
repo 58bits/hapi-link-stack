@@ -14,7 +14,7 @@ NOTE: This implementation only works with authenticated sessions, and expects `r
  
  In this example the current task is to edit user details, however, there's a relationship between users and offices, with each user having one main office. User/1 is moving to a new office, but the office record does not exist in the system yet. The edit/new interface for a user contains a link next to the office selector for the break-out task 'create new office', and the task 'jumps' to the new office screen (the new office screen can also be displayed from an offices maintenance area of the application, and so there are different 'routes' to the new office form). The current link stack settings allows the system user to return to the new user form after the new office has been added. Note: The new office route is set to level 5, so that a 'post redirect to get' pattern can be used to return either to a list of offices, and then the user edit screen, or directly to the user edit screen - for example using [hapi-flash](https://github.com/58bits/hapi-flash).
   
- To support the above use case, core entities or models of greater interest, are given lower links stack values. Reference tables, or lookups, or 'tangential' tasks are given higher values.  
+ To support the above use case, core entities or models of greater interest, are given lower link stack values. Reference tables, or lookups, or 'tangential' tasks are given higher values.  
  
 ## Installation
 
