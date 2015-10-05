@@ -102,13 +102,19 @@ For example...
     },
     
     
-The hapi-link-stack plugin, decorates the `request` object with a `returnLink` function, and so `request.returnLink();` from anywhere the request interface is available, will return the return link in the stack.
+The hapi-link-stack plugin, decorates the `request` object with `returnLink` and `linkStack` functions, and so `request.returnLink();` or `request.linkStack();` from anywhere the request interface is available, will return the return link in the stack, or the entire link stack respectively.
 
 For example, if an object context was being set, for rendering in a handlebars template....
 
-
      options.context.returnLink = request.returnLink();
+     options.context.linkStack = request.linkStack();
+     
      reply.view(options.template, options.context)
      
      // From inside the handelbars template
      <a class="btn" href="{{returnLink.path}}">Return to {{returnLink.label}}</a>
+     
+     // For the entire link stack - say for a breadcrumb trail
+     {{#each linkStack}}
+        <li class="link" href="{{path}}">{{label}}</li>
+     {{/each}}
